@@ -1,6 +1,30 @@
+body {
+  padding: 0;
+  margin: 0;
+}
 
-  body{
-    padding: 0;
-    margin: 0;
-  }
+section {
+  text-align: center;
+  margin: 100px auto;
+}
 
+.gorgons div {
+  height: 200px;
+  width: 300px;
+  border-radius: 8px;
+  border: 1px solid black;
+  margin: 30px 30px;
+  display: inline-block;
+}
+
+#one {
+  background-color: pink;
+}
+
+#two {
+  background-color: blue;
+}
+
+#user {
+  background-color: #E59BFF;
+}

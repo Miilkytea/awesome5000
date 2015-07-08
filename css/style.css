@@ -12,19 +12,42 @@ section {
   height: 200px;
   width: 300px;
   border-radius: 8px;
-  /* border: 1px solid black;*/
-  
   margin: 0 35px;
   display: inline-block;
 }
-/*#one {
-  background-color: pink;
+
+.stoneOne {
+  background-image: url('http://i.imgur.com/lQISRvg.gif');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-#two {
-  background-color: blue;
+.stoneUser {
+  background-image: url('http://i.imgur.com/lQISRvg.gif');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-#user {
-  background-color: #E59BFF;
-}*/
+.loadOne {
+  background-image: url('http://i.imgur.com/lQISRvg.gif');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.loadUser {
+  background-image: url('http://i.imgur.com/lQISRvg.gif');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.stoneTwo {
+  background-image: url('http://i.imgur.com/zfmHPwT.gif');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.loadTwo {
+  background-image: url('http://i.imgur.com/lQISRvg.gif');
+  background-repeat: no-repeat;
+  background-size: contain;
+}

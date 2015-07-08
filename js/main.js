@@ -59,17 +59,25 @@ var endGame = function() {
 };
 
 //create function that fades the losers away from the screen
+//remove class and added the Stone losing class
 var fade = function(loserOne, loserTwo) {
   if (oneSelectionObj.out === true) {
     $("#one").fadeOut("slow");
     count -= 1;
   }
   if (twoSelectionObj.out === true) {
-    $("#two").fadeOut("slow");
+    $("#two").removeClass("loadTwo").addClass("stoneTwo");
+    $("#two").fadeOut(3000);
+
     count -= 1;
   }
   if (userSelectionObj.out === true) {
-    $("#user").fadeOut("slow");
+    $("#user").fadeOut(3000, function() {
+      console.log($("#user"));
+      $("#user").css({
+        "background-color": "black"
+      });
+    });
     count -= 1;
   }
 };

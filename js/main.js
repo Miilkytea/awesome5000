@@ -2,14 +2,14 @@ console.log('activate framework!');
 
 //////GLOBAL VARIABLES/////
 
-var userSelection = {
+var userSelectionObj = {
   out: false
 };
 
-var oneSelection = {
+var oneSelectionObj = {
   out: false
 };
-var twoSelection = {
+var twoSelectionObj = {
   out: false
 };
 
@@ -18,27 +18,45 @@ var twoSelection = {
 
 var lose = function(oneChoice, twoChoice, userChoice) {
   if (oneChoice === "two" && twoChoice === "one") {
-    oneSelection.out = true;
-    twoSelection.out = true;
+    oneSelectionObj.out = true;
+    twoSelectionObj.out = true;
+    console.log(oneSelectionObj);
+    console.log(twoSelectionObj);
     //console.log("one and two are out!");
     return "one and two are out";
   } else if (oneChoice === "user" && userChoice === "one") {
-    oneSelection.out = true;
-    userSelection.out = true;
+    oneSelectionObj.out = true;
+    userSelectionObj.out = true;
+    console.log(oneSelectionObj);
+    console.log(userSelectionObj);
     //console.log("one and user are out!");
-    return "one and two are out";
+    return "one and user are out";
   } else if (userChoice === "two" && twoChoice === "user") {
-    userSelection.out = true;
-    twoSelection.out = true;
+    userSelectionObj.out = true;
+    twoSelectionObj.out = true;
+    console.log(userSelectionObj);
+    console.log(twoSelectionObj);
     //console.log("user and two are out!");
-    return "one and two are out";
+    return "user and two are out";
   } else {
     return false;
   }
 };
 
-var fade = function(loserOne, loserTwo)
-if
+
+
+var fade = function(loserOne, loserTwo) {
+  if (oneSelectionObj.out === true) {
+    $("#one").fadeOut();
+  }
+
+  if (twoSelectionObj.out === true) {
+    $("#two").fadeOut();
+  }
+  if (userSelectionObj.out === true) {
+    $("#user").fadeOut();
+  }
+};
 
 //user selects a square
 
@@ -50,10 +68,10 @@ var oneButton = $('#one');
 oneButton.click(function() {
 
 
-  userSelection = "one";
+  var userSelection = "one";
   console.log('user chose ' + userSelection);
 
-  oneSelection = Math.floor((Math.random() * 10) + 1);
+  var oneSelection = Math.floor((Math.random() * 10) + 1);
   if (oneSelection < 5) {
     oneSelection = "two";
   } else {
@@ -63,7 +81,7 @@ oneButton.click(function() {
 
 
 
-  twoSelection = Math.floor((Math.random() * 10) + 1);
+  var twoSelection = Math.floor((Math.random() * 10) + 1);
   if (twoSelection < 5) {
     twoSelection = "one";
   } else {
@@ -73,7 +91,7 @@ oneButton.click(function() {
   console.log("two chose " + twoSelection);
 
   lose(oneSelection, twoSelection, userSelection);
-
+  fade();
 });
 
 
@@ -83,10 +101,10 @@ var twoButton = $('#two');
 twoButton.click(function() {
 
 
-  userSelection = "two";
+  var userSelection = "two";
   console.log('user chose ' + userSelection);
 
-  oneSelection = Math.floor((Math.random() * 10) + 1);
+  var oneSelection = Math.floor((Math.random() * 10) + 1);
   if (oneSelection < 5) {
     oneSelection = "two";
   } else {
@@ -96,7 +114,7 @@ twoButton.click(function() {
 
 
 
-  twoSelection = Math.floor((Math.random() * 10) + 1);
+  var twoSelection = Math.floor((Math.random() * 10) + 1);
   if (twoSelection < 5) {
     twoSelection = "one";
   } else {
@@ -106,6 +124,7 @@ twoButton.click(function() {
   console.log("two chose " + twoSelection);
 
   lose(oneSelection, twoSelection, userSelection);
+  fade();
 });
 
 

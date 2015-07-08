@@ -62,7 +62,8 @@ var endGame = function() {
 //remove class and added the Stone losing class
 var fade = function(loserOne, loserTwo) {
   if (oneSelectionObj.out === true) {
-    $("#one").fadeOut("slow");
+    $("#one").removeClass("loadOne").addClass("stoneOne");
+    $("#one").fadeOut(3000);
     count -= 1;
   }
   if (twoSelectionObj.out === true) {
@@ -72,13 +73,11 @@ var fade = function(loserOne, loserTwo) {
     count -= 1;
   }
   if (userSelectionObj.out === true) {
-    $("#user").fadeOut(3000, function() {
-      console.log($("#user"));
-      $("#user").css({
-        "background-color": "black"
-      });
-    });
+    $("#user").removeClass("loadUser").addClass("stoneUser");
+    $("#user").fadeOut(3000);
     count -= 1;
+
+
   }
 };
 
@@ -157,7 +156,8 @@ twoButton.click(function() {
 });
 
 
-
+$("p").text("Score currently " + "player"
+  playerWIns() + "computer" + computerWins());
 
 //ose();
 

@@ -17,25 +17,25 @@ section {
 }
 
 .stoneOne {
-  background-image: url('http://i.imgur.com/lQISRvg.gif');
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.stoneUser {
-  background-image: url('http://i.imgur.com/lQISRvg.gif');
+  background-image: url('http://i.imgur.com/NNjN1zm.gif');
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .loadOne {
-  background-image: url('http://i.imgur.com/lQISRvg.gif');
+  background-image: url('http://i.imgur.com/iboW7Kh.gif');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.stoneUser {
+  background-image: url('http://i.imgur.com/ooH7aAK.gif');
   background-repeat: no-repeat;
   background-size: contain;
 }
 
 .loadUser {
-  background-image: url('http://i.imgur.com/lQISRvg.gif');
+  background-image: url('http://i.imgur.com/eBOZCIC.png');
   background-repeat: no-repeat;
   background-size: contain;
 }

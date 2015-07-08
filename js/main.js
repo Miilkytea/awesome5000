@@ -13,8 +13,10 @@ var twoSelectionObj = {
   out: false
 };
 
+var gameOn = true;
 
-///create function to elimiate the losers
+
+///create function to eliminate the losers
 
 var lose = function(oneChoice, twoChoice, userChoice) {
   if (oneChoice === "two" && twoChoice === "one") {
@@ -43,18 +45,27 @@ var lose = function(oneChoice, twoChoice, userChoice) {
   }
 };
 
+//create a function that says the game is over
+var endGame = function() {
+  if ("theres only one block left") {
+    return gameOn = false;
+  } else {
+    return true;
+  }
 
+};
 
+//create function that fades the losers away from the screen
 var fade = function(loserOne, loserTwo) {
   if (oneSelectionObj.out === true) {
-    $("#one").fadeOut();
+    $("#one").fadeOut("slow");
   }
 
   if (twoSelectionObj.out === true) {
-    $("#two").fadeOut();
+    $("#two").fadeOut("slow");
   }
   if (userSelectionObj.out === true) {
-    $("#user").fadeOut();
+    $("#user").fadeOut("slow");
   }
 };
 
@@ -92,6 +103,8 @@ oneButton.click(function() {
 
   lose(oneSelection, twoSelection, userSelection);
   fade();
+
+
 });
 
 
@@ -125,6 +138,7 @@ twoButton.click(function() {
 
   lose(oneSelection, twoSelection, userSelection);
   fade();
+
 });
 
 

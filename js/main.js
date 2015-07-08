@@ -156,8 +156,6 @@ twoButton.click(function() {
 });
 
 
-$("p").text("Score currently " + "player"
-  playerWIns() + "computer" + computerWins());
 
 //ose();
 

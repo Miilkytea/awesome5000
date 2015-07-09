@@ -67,6 +67,19 @@ section {
   cursor: pointer;
 }
 
+.stoneFour {
+  background-image: url('http://i.imgur.com/XqvazqV.gif');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.fourLoad {
+  background-image: url('http://i.imgur.com/CGxDqvl.gif');
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
 .welcome {
   color: #ffffff;
   background: rgba(111, 111, 999, 0.65);

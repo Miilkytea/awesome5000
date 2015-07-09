@@ -17,6 +17,10 @@ var threeSelectionObj = {
   out: false
 };
 
+var fourSelectionObj = {
+  out: false
+};
+
 
 var gameOn = true;
 
@@ -36,7 +40,7 @@ var count = 4;
 // };
 
 ///create function to eliminate the losers
-var lose = function(oneChoice, twoChoice, threeChoice, userChoice) {
+var lose = function(oneChoice, twoChoice, threeChoice, fourChoice, userChoice) {
   if (oneChoice === "two" && twoChoice === "one") {
     oneSelectionObj.out = true;
     twoSelectionObj.out = true;
@@ -79,6 +83,34 @@ var lose = function(oneChoice, twoChoice, threeChoice, userChoice) {
     console.log(twoSelectionObj);
     console.log("two and three are out!");
     return "two and three are out";
+  } else if (userChoice === "four" && fourChoice === "user") {
+    fourSelectionObj.out = true;
+    userSelectionObj.out = true;
+    console.log(userSelectionObj);
+    console.log(fourSelectionObj);
+    console.log("user and four are out!");
+    return "user and four are out";
+  } else if (oneChoice === "four" && fourChoice === "one") {
+    fourSelectionObj.out = true;
+    oneSelectionObj.out = true;
+    console.log(oneSelectionObj);
+    console.log(fourSelectionObj);
+    console.log("one and four are out!");
+    return "one and four are out";
+  } else if (twoChoice === "four" && fourChoice === "two") {
+    fourSelectionObj.out = true;
+    twoSelectionObj.out = true;
+    console.log(threeSelectionObj);
+    console.log(twoSelectionObj);
+    console.log("two and four are out!");
+    return "two and four are out";
+  } else if (threeChoice === "four" && fourChoice === "three") {
+    threeSelectionObj.out = true;
+    fourSelectionObj.out = true;
+    console.log(threeSelectionObj);
+    console.log(fourSelectionObj);
+    console.log("three and four are out!");
+    return "three and four are out";
   } else {
     return false;
   }
@@ -101,23 +133,29 @@ var lose = function(oneChoice, twoChoice, threeChoice, userChoice) {
 var fade = function(loserOne, loserTwo) {
   if (oneSelectionObj.out === true) {
     $("#one").removeClass("oneLoad").addClass("stoneOne");
-    $("#one").fadeOut(3000);
+    $("#one").fadeOut(4000);
 
 
   }
   if (twoSelectionObj.out === true) {
     $("#two").removeClass("twoLoad").addClass("stoneTwo");
-    $("#two").fadeOut(3000);
+    $("#two").fadeOut(4000);
 
   }
   if (threeSelectionObj.out === true) {
     $("#three").removeClass("threeLoad").addClass("stoneThree");
-    $("#three").fadeOut(3000);
+    $("#three").fadeOut(4000);
+
+  }
+  if (fourSelectionObj.out === true) {
+    $("#four").removeClass("fourLoad").addClass("stoneFour");
+    $("#four").fadeOut(4000);
+
 
   }
   if (userSelectionObj.out === true) {
     $("#user").removeClass("userLoad").addClass("stoneUser");
-    $("#user").fadeOut(3000);
+    $("#user").fadeOut(4000);
 
   }
 
@@ -145,11 +183,13 @@ oneButton.click(function() {
   var userSelection = "one";
   console.log('user chose ' + userSelection);
 
-  var oneSelection = Math.floor((Math.random() * 30) + 1);
+  var oneSelection = Math.floor((Math.random() * 40) + 1);
   if (oneSelection <= 10) {
     oneSelection = "two";
   } else if (oneSelection <= 20) {
     oneSelection = "user";
+  } else if (oneSelection <= 30) {
+    oneSelection = "four";
   } else {
     oneSelection = "three";
   }
@@ -157,10 +197,12 @@ oneButton.click(function() {
 
 
 
-  var twoSelection = Math.floor((Math.random() * 30) + 1);
+  var twoSelection = Math.floor((Math.random() * 40) + 1);
   if (twoSelection <= 10) {
     twoSelection = "one";
   } else if (twoSelection <= 20) {
+    twoSelection = "four";
+  } else if (twoSelection <= 30) {
     twoSelection = "user";
   } else {
     twoSelection = "three";
@@ -168,16 +210,32 @@ oneButton.click(function() {
 
   console.log("two chose " + twoSelection);
 
-  var threeSelection = Math.floor((Math.random() * 30) + 1);
+  var threeSelection = Math.floor((Math.random() * 40) + 1);
   if (threeSelection <= 10) {
     threeSelection = "one";
   } else if (threeSelection <= 20) {
     threeSelection = "user";
-  } else {
+  } else if (threeSelection <= 30) {
     threeSelection = "two";
+  } else {
+    threeSelection = "four";
   }
 
   console.log("three chose " + threeSelection);
+
+
+  var fourSelection = Math.floor((Math.random() * 40) + 1);
+  if (fourSelection <= 10) {
+    fourSelection = "three";
+  } else if (fourSelection <= 20) {
+    fourSelection = "one";
+  } else if (fourSelection <= 30) {
+    fourSelection = "user";
+  } else {
+    fourSelection = "two";
+  }
+  console.log("one chose " + oneSelection);
+
 
   lose(oneSelection, twoSelection, userSelection, threeSelection);
   fade();
@@ -196,10 +254,12 @@ twoButton.click(function() {
   var userSelection = "two";
   console.log('user chose ' + userSelection);
 
-  var oneSelection = Math.floor((Math.random() * 30) + 1);
+  var oneSelection = Math.floor((Math.random() * 40) + 1);
   if (oneSelection <= 10) {
     oneSelection = "two";
   } else if (oneSelection <= 20) {
+    oneSelection = "four";
+  } else if (oneSelection <= 30) {
     oneSelection = "user";
   } else {
     oneSelection = "three";
@@ -208,24 +268,41 @@ twoButton.click(function() {
 
 
 
-  var twoSelection = Math.floor((Math.random() * 30) + 1);
+  var twoSelection = Math.floor((Math.random() * 40) + 1);
   if (twoSelection <= 10) {
     twoSelection = "one";
   } else if (twoSelection <= 20) {
-    twoSelection = "user";
-  } else {
+    twoSelection = "four";
+  } else if (twoSelection <= 30) {
     twoSelection = "three";
+  } else {
+    twoSelection = "user";
   }
   console.log("two chose " + twoSelection);
 
 
-  var threeSelection = Math.floor((Math.random() * 30) + 1);
+  var threeSelection = Math.floor((Math.random() * 40) + 1);
   if (threeSelection <= 10) {
     threeSelection = "one";
   } else if (threeSelection <= 20) {
     threeSelection = "user";
-  } else {
+  } else if (threeSelection <= 30) {
     threeSelection = "two";
+  } else {
+    threeSelection = "four";
+  }
+
+  console.log("three chose " + threeSelection);
+
+  var fourSelection = Math.floor((Math.random() * 40) + 1);
+  if (fourSelection <= 10) {
+    fourSelection = "two";
+  } else if (fourSelection <= 20) {
+    fourSelection = "one";
+  } else if (fourSelection <= 30) {
+    fourSelection = "three";
+  } else {
+    fourSelection = "user";
   }
 
   console.log("three chose " + threeSelection);
@@ -244,23 +321,95 @@ threeButton.click(function() {
   var userSelection = "three";
   console.log('user chose ' + userSelection);
 
-  var oneSelection = Math.floor((Math.random() * 30) + 1);
+  var oneSelection = Math.floor((Math.random() * 40) + 1);
   if (oneSelection <= 10) {
-    oneSelection = "two";
+    oneSelection = "four";
   } else if (oneSelection <= 20) {
     oneSelection = "user";
-  } else {
+  } else if (oneSelection <= 30) {
     oneSelection = "three";
+  } else {
+    oneSelection = "two";
   }
 
   console.log("one chose " + oneSelection);
 
 
 
-  var twoSelection = Math.floor((Math.random() * 30) + 1);
+  var twoSelection = Math.floor((Math.random() * 40) + 1);
   if (twoSelection <= 10) {
     twoSelection = "one";
   } else if (twoSelection <= 20) {
+    twoSelection = "user";
+  } else if (fourSelection <= 30) {
+    twoSelection = "four";
+  } else {
+    twoSelection = "three";
+  }
+
+  console.log("two chose " + twoSelection);
+
+  var threeSelection = Math.floor((Math.random() * 40) + 1);
+  if (threeSelection <= 10) {
+    threeSelection = "one";
+  } else if (threeSelection <= 20) {
+    threeSelection = "user";
+  } else if (threeSelection <= 30) {
+    threeSelection = "two";
+  } else {
+    threeSelection = "four";
+  }
+  console.log("three chose " + threeSelection);
+
+
+  var fourSelection = Math.floor((Math.random() * 40) + 1);
+  if (fourSelection <= 10) {
+    fourSelection = "user";
+  } else if (fourSelection <= 20) {
+    fourSelection = "two";
+  } else if (fourSelection <= 30) {
+    fourSelection = "three";
+  } else {
+    fourSelection = "one";
+  }
+  console.log("four chose " + oneSelection);
+
+
+  lose(oneSelection, twoSelection, userSelection, threeSelection);
+  fade();
+
+
+});
+
+
+///button 4
+var fourButton = $('#four');
+fourButton.click(function() {
+
+
+  var userSelection = "four";
+  console.log('user chose ' + userSelection);
+
+  var oneSelection = Math.floor((Math.random() * 40) + 1);
+  if (oneSelection <= 10) {
+    oneSelection = "user";
+  } else if (oneSelection <= 20) {
+    oneSelection = "two";
+  } else if (oneSelection <= 30) {
+    oneSelection = "four";
+  } else {
+    oneSelection = "three";
+  }
+  console.log("one chose " + oneSelection);
+
+
+
+  var twoSelection = Math.floor((Math.random() * 40) + 1);
+  if (twoSelection <= 10) {
+    twoSelection = "one";
+  } else if (twoSelection <= 20) {
+    twoSelection = "four";
+  } else if (twoSelection <= 30) {
     twoSelection = "user";
   } else {
     twoSelection = "three";
@@ -268,16 +417,32 @@ threeButton.click(function() {
 
   console.log("two chose " + twoSelection);
 
-  var threeSelection = Math.floor((Math.random() * 30) + 1);
+  var threeSelection = Math.floor((Math.random() * 40) + 1);
   if (threeSelection <= 10) {
-    threeSelection = "one";
+    threeSelection = "four";
   } else if (threeSelection <= 20) {
     threeSelection = "user";
-  } else {
+  } else if (threeSelection <= 30) {
     threeSelection = "two";
+  } else {
+    threeSelection = "one";
   }
 
   console.log("three chose " + threeSelection);
+
+
+  var fourSelection = Math.floor((Math.random() * 40) + 1);
+  if (fourSelection <= 10) {
+    fourSelection = "three";
+  } else if (fourSelection <= 20) {
+    fourSelection = "one";
+  } else if (fourSelection <= 30) {
+    fourSelection = "user";
+  } else {
+    fourSelection = "two";
+  }
+  console.log("four chose " + oneSelection);
+
 
   lose(oneSelection, twoSelection, userSelection, threeSelection);
   fade();

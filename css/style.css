@@ -80,15 +80,16 @@ section {
   text-align: justify;
   font-size: 2em;
   padding: 0 30px;
-  font-family: "Helvetica Neue", san-serif;
-  font-style: italic;
+  font-family: "Helvetica", san-serif;
   cursor: pointer;
+  text-shadow: 1px 1px 30px rgba(000, 000, 999, .9);
 }
 
 .welcome h1 {
   font-size: 1.3em;
   text-align: center;
-  text-shadow: none;
+  text-shadow: 1px 1px 40px rgba(000, 000, 999, .8);
+  font-family: 'Playfair Display SC', serif;
 }
 
 .welcome p,

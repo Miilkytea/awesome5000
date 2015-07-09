@@ -59,23 +59,23 @@ var lose = function(oneChoice, twoChoice, threeChoice, userChoice) {
     console.log("user and two are out!");
     return "user and two are out";
   } else if (userChoice === "three" && threeChoice === "user") {
-    userSelectionObj.out = true;
     threeSelectionObj.out = true;
+    userSelectionObj.out = true;
     console.log(userSelectionObj);
-    console.log(twoSelectionObj);
+    console.log(threeSelectionObj);
     console.log("user and three are out!");
     return "user and three are out";
   } else if (oneChoice === "three" && threeChoice === "one") {
     threeSelectionObj.out = true;
     oneSelectionObj.out = true;
-    console.log(userSelectionObj);
-    console.log(twoSelectionObj);
+    console.log(oneSelectionObj);
+    console.log(threeSelectionObj);
     console.log("one and three are out!");
     return "one and three are out";
   } else if (twoChoice === "three" && threeChoice === "two") {
     threeSelectionObj.out = true;
     twoSelectionObj.out = true;
-    console.log(userSelectionObj);
+    console.log(threeSelectionObj);
     console.log(twoSelectionObj);
     console.log("two and three are out!");
     return "two and three are out";
@@ -98,33 +98,30 @@ var lose = function(oneChoice, twoChoice, threeChoice, userChoice) {
 
 //create function that fades the losers away from the screen
 //remove class and added the Stone losing class
-var fade = function(loserOne, loserTwo, loserThree) {
+var fade = function(loserOne, loserTwo) {
   if (oneSelectionObj.out === true) {
     $("#one").removeClass("oneLoad").addClass("stoneOne");
     $("#one").fadeOut(3000);
-    $("#one").removeClass("mom");
 
 
   }
   if (twoSelectionObj.out === true) {
     $("#two").removeClass("twoLoad").addClass("stoneTwo");
     $("#two").fadeOut(3000);
-    $("#two").removeClass("mom");
-
-
-  }
-  if (userSelectionObj.out === true) {
-    $("#user").removeClass("userLoad").addClass("stoneUser");
-    $("#user").fadeOut(3000);
-    $("#user").removeClass("mom");
 
   }
   if (threeSelectionObj.out === true) {
     $("#three").removeClass("threeLoad").addClass("stoneThree");
     $("#three").fadeOut(3000);
-    $("#three").removeClass("mom");
 
   }
+  if (userSelectionObj.out === true) {
+    $("#user").removeClass("userLoad").addClass("stoneUser");
+    $("#user").fadeOut(3000);
+
+  }
+
+
 };
 
 
@@ -199,7 +196,7 @@ twoButton.click(function() {
   var userSelection = "two";
   console.log('user chose ' + userSelection);
 
-  var oneSelection = Math.floor((Math.random() * 10) + 1);
+  var oneSelection = Math.floor((Math.random() * 30) + 1);
   if (oneSelection <= 10) {
     oneSelection = "two";
   } else if (oneSelection <= 20) {
@@ -211,7 +208,7 @@ twoButton.click(function() {
 
 
 
-  var twoSelection = Math.floor((Math.random() * 10) + 1);
+  var twoSelection = Math.floor((Math.random() * 30) + 1);
   if (twoSelection <= 10) {
     twoSelection = "one";
   } else if (twoSelection <= 20) {

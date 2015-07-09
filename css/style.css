@@ -10,7 +10,7 @@ section {
 
 .gorgons div {
   height: 200px;
-  width: 300px;
+  width: 240px;
   border-radius: 8px;
   margin: 0 35px;
   display: inline-block;
@@ -22,10 +22,11 @@ section {
   background-size: contain;
 }
 
-.loadOne {
+.oneLoad {
   background-image: url('http://i.imgur.com/iboW7Kh.gif');
   background-repeat: no-repeat;
   background-size: contain;
+  cursor: pointer;
 }
 
 .stoneUser {
@@ -34,7 +35,7 @@ section {
   background-size: contain;
 }
 
-.loadUser {
+.userLoad {
   background-image: url('http://i.imgur.com/eBOZCIC.png');
   background-repeat: no-repeat;
   background-size: contain;
@@ -46,15 +47,29 @@ section {
   background-size: contain;
 }
 
-.loadTwo {
+.twoLoad {
   background-image: url('http://i.imgur.com/lQISRvg.gif');
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.stoneThree {
+  background-image: url('http://i.imgur.com/6N8Bmaq.png');
   background-repeat: no-repeat;
   background-size: contain;
 }
 
+.threeLoad {
+  background-image: url('http://i.imgur.com/IGjKV3x.gif');
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
 .welcome {
   color: #ffffff;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(111, 111, 999, 0.65);
   height: 445px;
   width: 45%;
   border-radius: 25px;
@@ -67,10 +82,11 @@ section {
   padding: 0 30px;
   font-family: "Helvetica Neue", san-serif;
   font-style: italic;
+  cursor: pointer;
 }
 
 .welcome h1 {
-  font-size: 1em;
+  font-size: 1.3em;
   text-align: center;
   text-shadow: none;
 }

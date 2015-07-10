@@ -43,6 +43,13 @@ The game is written in HTML, CSS and JavaScript.
 
 The Design of the game is hand drawn and interactive because when the Medusas are eliminated they visibly show it. 
 
+### Next Steps
+
+The game is incomplete. The users stories are unfinished so the game is pretty, but ambiguous. My goal is to finish the game with signifiers of: who picks whom, when the game ends, when the wnner wins or loses. Challenges for me were using arrays and for loops and knowing how to put functions with-in functions.
+
+### URL
+[http://miilkytea.github.io./](http://miilkytea.github.io./)
+
  
 
 

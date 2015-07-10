@@ -1,3 +1,8 @@
+html {
+  background-image: url('images/medusatextback.gif');
+  background-repeat: no-repeat;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -12,20 +17,22 @@ section {
   height: 200px;
   width: 240px;
   border-radius: 8px;
-  margin: 0 35px;
+  margin: 0 20px;
   display: inline-block;
 }
 
-.stoneOne {
+.stoneTwo {
   background-image: url('http://i.imgur.com/NNjN1zm.gif');
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.oneLoad {
+.twoLoad {
   background-image: url('http://i.imgur.com/iboW7Kh.gif');
   background-repeat: no-repeat;
   background-size: contain;
+  margin-left: 100px;
+  padding-left: 300px;
   cursor: pointer;
 }
 
@@ -41,16 +48,17 @@ section {
   background-size: contain;
 }
 
-.stoneTwo {
+.stoneFive {
   background-image: url('http://i.imgur.com/zfmHPwT.gif');
   background-repeat: no-repeat;
   background-size: contain;
 }
 
-.twoLoad {
+.fiveLoad {
   background-image: url('http://i.imgur.com/lQISRvg.gif');
   background-repeat: no-repeat;
   background-size: contain;
+  padding-right: 10px;
   cursor: pointer;
 }
 

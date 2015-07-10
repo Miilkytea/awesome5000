@@ -2,6 +2,8 @@ console.log('activate framework!');
 
 //////GLOBAL VARIABLES/////
 
+var losers = 0;
+
 var userSelectionObj = {
   out: false
 };
@@ -24,7 +26,6 @@ var fourSelectionObj = {
 
 var gameOn = true;
 
-var count = 4;
 
 // // //create function that grabs the elements of gorgon and will check the count
 // var gameStatus = function() {
@@ -100,7 +101,7 @@ var lose = function(oneChoice, twoChoice, threeChoice, fourChoice, userChoice) {
   } else if (twoChoice === "four" && fourChoice === "two") {
     fourSelectionObj.out = true;
     twoSelectionObj.out = true;
-    console.log(threeSelectionObj);
+    console.log(fourSelectionObj);
     console.log(twoSelectionObj);
     console.log("two and four are out!");
     return "two and four are out";
@@ -134,32 +135,48 @@ var fade = function(loserOne, loserTwo) {
   if (oneSelectionObj.out === true) {
     $("#one").removeClass("oneLoad").addClass("stoneOne");
     $("#one").fadeOut(4000);
-
-
+    losers++;
   }
+
   if (twoSelectionObj.out === true) {
     $("#two").removeClass("twoLoad").addClass("stoneTwo");
     $("#two").fadeOut(4000);
-
+    losers++;
   }
+
   if (threeSelectionObj.out === true) {
     $("#three").removeClass("threeLoad").addClass("stoneThree");
     $("#three").fadeOut(4000);
-
+    losers++;
   }
+
   if (fourSelectionObj.out === true) {
     $("#four").removeClass("fourLoad").addClass("stoneFour");
     $("#four").fadeOut(4000);
-
-
+    losers++;
   }
+
   if (userSelectionObj.out === true) {
     $("#user").removeClass("userLoad").addClass("stoneUser");
     $("#user").fadeOut(4000);
-
+    losers++;
   }
 
 
+};
+
+///end the game
+var endGame = function() {
+  if (losers === 4 || userSelectionObj.out === true) {
+    if (losers === 4 && userSelectionObj === false) {
+      console.log("YOU WIN!");
+    } else if (userSelectionObj.out === true) {
+      console.log("YOU LOSE!");
+    }
+    gameOn = false;
+    console.log("GAME OVER");
+
+  }
 };
 
 
@@ -173,73 +190,85 @@ $("#welcomeIntro").on('click', function() {
   $(this).fadeOut(0);
 });
 
-
-///button 1
+/////////button 1
 //$('one').click(function(){})
 var oneButton = $('#one');
 oneButton.click(function() {
 
 
   var userSelection = "one";
-  console.log('user chose ' + userSelection);
+  console.log('user chose ' + userSelection); //not working
 
-  var oneSelection = Math.floor((Math.random() * 40) + 1);
-  if (oneSelection <= 10) {
-    oneSelection = "two";
-  } else if (oneSelection <= 20) {
-    oneSelection = "user";
-  } else if (oneSelection <= 30) {
-    oneSelection = "four";
-  } else {
-    oneSelection = "three";
-  }
-  console.log("one chose " + oneSelection);
+  if (oneSelectionObj.out === false) {
+    var oneSelection = Math.floor((Math.random() * 40) + 1);
+    if (oneSelection <= 10 && twoSelectionObj.out === false) {
+      oneSelection = "two";
+    } else if (oneSelection <= 20 && userSelectionObj.out === false) { //not working
+      oneSelection = "user";
+    } else if (oneSelection <= 30 && fourSelectionObj.out === false) {
+      oneSelection = "four";
+    } else if (threeSelectionObj.out === false) {
+      oneSelection = "three";
+    } else {
 
-
-
-  var twoSelection = Math.floor((Math.random() * 40) + 1);
-  if (twoSelection <= 10) {
-    twoSelection = "one";
-  } else if (twoSelection <= 20) {
-    twoSelection = "four";
-  } else if (twoSelection <= 30) {
-    twoSelection = "user";
-  } else {
-    twoSelection = "three";
+    }
+    console.log("one chose " + oneSelection);
   }
 
-  console.log("two chose " + twoSelection);
+  if (twoSelectionObj.out === false) {
+    var twoSelection = Math.floor((Math.random() * 40) + 1);
+    if (twoSelection <= 10 && oneSelectionObj.out === false) {
+      twoSelection = "one";
+    } else if (twoSelection <= 20 && fourSelectionObj.out === false) {
+      twoSelection = "four";
+    } else if (twoSelection <= 30 && userSelectionObj.out === false) {
+      twoSelection = "user";
+    } else if (threeSelectionObj.out === false) {
+      twoSelection = "three";
+    } else {
+      return null;
+    }
 
-  var threeSelection = Math.floor((Math.random() * 40) + 1);
-  if (threeSelection <= 10) {
-    threeSelection = "one";
-  } else if (threeSelection <= 20) {
-    threeSelection = "user";
-  } else if (threeSelection <= 30) {
-    threeSelection = "two";
-  } else {
-    threeSelection = "four";
+    console.log("two chose " + twoSelection);
   }
 
-  console.log("three chose " + threeSelection);
+  if (threeSelectionObj.out === false) {
+    var threeSelection = Math.floor((Math.random() * 40) + 1);
+    if (threeSelection <= 10 && oneSelectionObj.out === false) {
+      threeSelection = "one";
+    } else if (threeSelection <= 20 && userSelectionObj.out === false) {
+      threeSelection = "user";
+    } else if (threeSelection <= 30 && twoSelectionObj.out === false) {
+      threeSelection = "two";
+    } else if (fourSelectionObj.out === false) {
+      threeSelection = "four";
+    } else {
+      return null;
+    }
 
-
-  var fourSelection = Math.floor((Math.random() * 40) + 1);
-  if (fourSelection <= 10) {
-    fourSelection = "three";
-  } else if (fourSelection <= 20) {
-    fourSelection = "one";
-  } else if (fourSelection <= 30) {
-    fourSelection = "user";
-  } else {
-    fourSelection = "two";
+    console.log("three chose " + threeSelection);
   }
-  console.log("one chose " + oneSelection);
 
+  if (fourSelectionObj.out === false) {
+    var fourSelection = Math.floor((Math.random() * 40) + 1);
+    if (fourSelection <= 10 && threeSelectionObj.out === false) {
+      fourSelection = "three";
+    } else if (fourSelection <= 20 && oneSelectionObj.out === false) {
+      fourSelection = "one";
+    } else if (fourSelection <= 30 && userSelectionObj.out === false) {
+      fourSelection = "user";
+    } else if (twoSelectionObj.out === false) {
+      fourSelection = "two";
+    } else {
+      return null;
 
-  lose(oneSelection, twoSelection, userSelection, threeSelection);
+    }
+    console.log("four chose " + fourSelection);
+  }
+
+  lose(oneSelection, twoSelection, userSelection, threeSelection, fourSelection);
   fade();
-
+  endGame();
 
 });
 
@@ -254,62 +283,75 @@ twoButton.click(function() {
   var userSelection = "two";
   console.log('user chose ' + userSelection);
 
-  var oneSelection = Math.floor((Math.random() * 40) + 1);
-  if (oneSelection <= 10) {
-    oneSelection = "two";
-  } else if (oneSelection <= 20) {
-    oneSelection = "four";
-  } else if (oneSelection <= 30) {
-    oneSelection = "user";
-  } else {
-    oneSelection = "three";
-  }
-  console.log("one chose " + oneSelection);
+  if (oneSelectionObj.out === false) {
+    var oneSelection = Math.floor((Math.random() * 40) + 1);
+    if (oneSelection <= 10 && twoSelectionObj.out === false) {
+      oneSelection = "two";
+    } else if (oneSelection <= 20 && fourSelectionObj.out === false) {
+      oneSelection = "four";
+    } else if (oneSelection <= 30 && userSelectionObj.out === false) {
+      oneSelection = "user";
+    } else if (threeSelectionObj.out === false) {
+      oneSelection = "three";
 
-
-
-  var twoSelection = Math.floor((Math.random() * 40) + 1);
-  if (twoSelection <= 10) {
-    twoSelection = "one";
-  } else if (twoSelection <= 20) {
-    twoSelection = "four";
-  } else if (twoSelection <= 30) {
-    twoSelection = "three";
-  } else {
-    twoSelection = "user";
-  }
-  console.log("two chose " + twoSelection);
-
-
-  var threeSelection = Math.floor((Math.random() * 40) + 1);
-  if (threeSelection <= 10) {
-    threeSelection = "one";
-  } else if (threeSelection <= 20) {
-    threeSelection = "user";
-  } else if (threeSelection <= 30) {
-    threeSelection = "two";
-  } else {
-    threeSelection = "four";
+    }
+    console.log("one chose " + oneSelection);
   }
 
-  console.log("three chose " + threeSelection);
+  if (twoSelectionObj.out === false) {
+    var twoSelection = Math.floor((Math.random() * 40) + 1);
+    if (twoSelection <= 10 && oneSelectionObj.out === false) {
+      twoSelection = "one";
+    } else if (twoSelection <= 20 && fourSelectionObj.out === false) {
+      twoSelection = "four";
+    } else if (twoSelection <= 30 && threeSelectionObj.out === false) { //works
+      twoSelection = "three";
+    } else if (userSelectionObj.out === false) {
+      twoSelection = "user";
+    } else {
+      return null;
+    }
 
-  var fourSelection = Math.floor((Math.random() * 40) + 1);
-  if (fourSelection <= 10) {
-    fourSelection = "two";
-  } else if (fourSelection <= 20) {
-    fourSelection = "one";
-  } else if (fourSelection <= 30) {
-    fourSelection = "three";
-  } else {
-    fourSelection = "user";
+    console.log("two chose " + twoSelection);
   }
 
-  console.log("three chose " + threeSelection);
+  if (threeSelectionObj.out === false) {
 
-  lose(oneSelection, twoSelection, userSelection, threeSelection);
+    var threeSelection = Math.floor((Math.random() * 40) + 1);
+    if (threeSelection <= 10 && oneSelectionObj.out === false) {
+      threeSelection = "one";
+    } else if (threeSelection <= 20 && userSelectionObj.out === false) {
+      threeSelection = "user";
+    } else if (threeSelection <= 30 && twoSelectionObj.out === false) { //works
+      threeSelection = "two";
+    } else if (fourSelectionObj.out === false) {
+      threeSelection = "four";
+    } else {
+      return null;
+    }
+
+    console.log("three chose " + threeSelection);
+  }
+
+  if (fourSelectionObj.out === false) {
+    var fourSelection = Math.floor((Math.random() * 40) + 1);
+    if (fourSelection <= 10 && twoSelectionObj.out === false) {
+      fourSelection = "two";
+    } else if (fourSelection <= 20 && oneSelectionObj.out === false) {
+      fourSelection = "one";
+    } else if (fourSelection <= 30 && threeSelectionObj.out === false) {
+      fourSelection = "three";
+    } else if (userSelectionObj.out === false) {
+      fourSelection = "user";
+    } else {
+      return null;
+    }
+
+    console.log("four chose " + fourSelection);
+  }
+  lose(oneSelection, twoSelection, userSelection, threeSelection, fourSelection);
   fade();
-
+  endGame();
 
 });
 
@@ -321,63 +363,75 @@ threeButton.click(function() {
   var userSelection = "three";
   console.log('user chose ' + userSelection);
 
-  var oneSelection = Math.floor((Math.random() * 40) + 1);
-  if (oneSelection <= 10) {
-    oneSelection = "four";
-  } else if (oneSelection <= 20) {
-    oneSelection = "user";
-  } else if (oneSelection <= 30) {
-    oneSelection = "three";
-  } else {
-    oneSelection = "two";
+  if (oneSelectionObj.out === false) {
+    var oneSelection = Math.floor((Math.random() * 40) + 1);
+    if (oneSelection <= 10 && fourSelectionObj.out === false) {
+      oneSelection = "four";
+    } else if (oneSelection <= 20 && userSelectionObj.out === false) {
+      oneSelection = "user";
+    } else if (oneSelection <= 30 && threeSelectionObj.out === false) {
+      oneSelection = "three";
+    } else if (twoSelectionObj.out === false) {
+      oneSelection = "two";
+    } else {
+      return null;
+    }
+
+    console.log("one chose " + oneSelection);
   }
 
-  console.log("one chose " + oneSelection);
+  if (twoSelectionObj.out === false) {
+    var twoSelection = Math.floor((Math.random() * 40) + 1);
+    if (twoSelection <= 10 && oneSelectionObj.out === false) {
+      twoSelection = "one";
+    } else if (twoSelection <= 20 && userSelectionObj.out === false) {
+      twoSelection = "user";
+    } else if (fourSelection <= 30 && fourSelectionObj.out === false) {
+      twoSelection = "four";
+    } else if (threeSelectionObj.out === false) {
+      twoSelection = "three";
+    } else {
+      return null;
+    }
 
-
-
-  var twoSelection = Math.floor((Math.random() * 40) + 1);
-  if (twoSelection <= 10) {
-    twoSelection = "one";
-  } else if (twoSelection <= 20) {
-    twoSelection = "user";
-  } else if (fourSelection <= 30) {
-    twoSelection = "four";
-  } else {
-    twoSelection = "three";
+    console.log("two chose " + twoSelection);
   }
 
-  console.log("two chose " + twoSelection);
-
-  var threeSelection = Math.floor((Math.random() * 40) + 1);
-  if (threeSelection <= 10) {
-    threeSelection = "one";
-  } else if (threeSelection <= 20) {
-    threeSelection = "user";
-  } else if (threeSelection <= 30) {
-    threeSelection = "two";
-  } else {
-    threeSelection = "four";
+  if (threeSelectionObj.out === false) {
+    var threeSelection = Math.floor((Math.random() * 40) + 1);
+    if (threeSelection <= 10 && oneSelectionObj.out === false) {
+      threeSelection = "one";
+    } else if (threeSelection <= 20 && userSelectionObj.out === false) {
+      threeSelection = "user";
+    } else if (threeSelection <= 30 && twoSelectionObj.out === false) {
+      threeSelection = "two";
+    } else if (fourSelectionObj.out === false) {
+      threeSelection = "four";
+    } else {
+      return null;
+    }
+    console.log("three chose " + threeSelection);
   }
-  console.log("three chose " + threeSelection);
 
-
-  var fourSelection = Math.floor((Math.random() * 40) + 1);
-  if (fourSelection <= 10) {
-    fourSelection = "user";
-  } else if (fourSelection <= 20) {
-    fourSelection = "two";
-  } else if (fourSelection <= 30) {
-    fourSelection = "three";
-  } else {
-    fourSelection = "one";
+  if (fourSelectionObj.out === false) {
+    var fourSelection = Math.floor((Math.random() * 40) + 1);
+    if (fourSelection <= 10 && userSelectionObj.out === false) {
+      fourSelection = "user";
+    } else if (fourSelection <= 20 && twoSelectionObj.out === false) {
+      fourSelection = "two";
+    } else if (fourSelection <= 30 && threeSelectionObj.out === false) {
+      fourSelection = "three";
+    } else if (oneSelectionObj.out === false) {
+      fourSelection = "one";
+    } else {
+      return null;
+    }
+    console.log("four chose " + fourSelection);
   }
-  console.log("four chose " + oneSelection);
 
-
-  lose(oneSelection, twoSelection, userSelection, threeSelection);
+  lose(oneSelection, twoSelection, userSelection, threeSelection, fourSelection);
   fade();
-
+  endGame();
 
 });
 
@@ -388,64 +442,79 @@ fourButton.click(function() {
 
 
   var userSelection = "four";
-  console.log('user chose ' + userSelection);
-
-  var oneSelection = Math.floor((Math.random() * 40) + 1);
-  if (oneSelection <= 10) {
-    oneSelection = "user";
-  } else if (oneSelection <= 20) {
-    oneSelection = "two";
-  } else if (oneSelection <= 30) {
-    oneSelection = "four";
-  } else {
-    oneSelection = "three";
-  }
-  console.log("one chose " + oneSelection);
+  console.log('user chose ' + userSelection); //not working
 
 
-
-  var twoSelection = Math.floor((Math.random() * 40) + 1);
-  if (twoSelection <= 10) {
-    twoSelection = "one";
-  } else if (twoSelection <= 20) {
-    twoSelection = "four";
-  } else if (twoSelection <= 30) {
-    twoSelection = "user";
-  } else {
-    twoSelection = "three";
+  if (oneSelectionObj.out === false) {
+    var oneSelection = Math.floor((Math.random() * 40) + 1);
+    if (oneSelection <= 10 && userSelectionObj.out === false) {
+      oneSelection = "user";
+    } else if (oneSelection <= 20 && twoSelectionObj.out === false) {
+      oneSelection = "two";
+    } else if (oneSelection <= 30 && fourSelectionObj.out === false) { //works
+      oneSelection = "four";
+    } else if (threeSelectionObj.out === false) {
+      oneSelection = "three";
+    } else {
+      return null;
+    }
+    console.log("one chose " + oneSelection);
   }
 
-  console.log("two chose " + twoSelection);
+  if (twoSelectionObj.out === false) {
+    var twoSelection = Math.floor((Math.random() * 40) + 1);
+    if (twoSelection <= 10 && oneSelectionObj.out === false) {
+      twoSelection = "one";
+    } else if (twoSelection <= 20 && fourSelectionObj.out === false) {
+      twoSelection = "four";
+    } else if (twoSelection <= 30 && userSelectionObj.out === false) {
+      twoSelection = "user";
+    } else if (threeSelectionObj.out === false) { //not working
+      twoSelection = "three";
+    } else {
+      return null;
+    }
 
-  var threeSelection = Math.floor((Math.random() * 40) + 1);
-  if (threeSelection <= 10) {
-    threeSelection = "four";
-  } else if (threeSelection <= 20) {
-    threeSelection = "user";
-  } else if (threeSelection <= 30) {
-    threeSelection = "two";
-  } else {
-    threeSelection = "one";
+    console.log("two chose " + twoSelection);
   }
 
-  console.log("three chose " + threeSelection);
+  if (threeSelectionObj.out === false) {
+    var threeSelection = Math.floor((Math.random() * 40) + 1);
+    if (threeSelection <= 10 && fourSelectionObj.out === false) {
+      threeSelection = "four";
+    } else if (threeSelection <= 20 && userSelectionObj.out === false) {
+      threeSelection = "user";
+    } else if (threeSelection <= 30 && twoSelectionObj.out === false) { //not working
+      threeSelection = "two";
+    } else if (oneSelectionObj.out === false) {
+      threeSelection = "one";
+    } else {
+      return null;
+    }
 
+    console.log("three chose " + threeSelection);
 
-  var fourSelection = Math.floor((Math.random() * 40) + 1);
-  if (fourSelection <= 10) {
-    fourSelection = "three";
-  } else if (fourSelection <= 20) {
-    fourSelection = "one";
-  } else if (fourSelection <= 30) {
-    fourSelection = "user";
-  } else {
-    fourSelection = "two";
   }
-  console.log("four chose " + oneSelection);
 
+  if (fourSelectionObj.out === false) {
+    var fourSelection = Math.floor((Math.random() * 40) + 1);
+    if (fourSelection <= 10 && threeSelectionObj.out === false) {
+      fourSelection = "three";
+    } else if (fourSelection <= 20 && oneSelectionObj.out === false) { //works
+      fourSelection = "one";
+    } else if (fourSelection <= 30 && userSelectionObj.out === false) { //not working
+      fourSelection = "user";
+    } else if (twoSelectionObj.out === false) {
+      fourSelection = "two";
+    } else {
+      return null;
+    }
+    console.log("four chose " + fourSelection);
+  }
 
-  lose(oneSelection, twoSelection, userSelection, threeSelection);
+  lose(oneSelection, twoSelection, userSelection, threeSelection, fourSelection);
   fade();
+  endGame();
 
 
 });

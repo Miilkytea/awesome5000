@@ -25,6 +25,8 @@ section {
   background-image: url('http://i.imgur.com/NNjN1zm.gif');
   background-repeat: no-repeat;
   background-size: contain;
+  margin-left: 100px;
+  padding-left: 300px;
 }
 
 .twoLoad {
@@ -119,5 +121,7 @@ h1 {
 }
 
 [id='1'] img {
-  display: none;
+  margin-left: -200px;
+  padding-right: 400px;
+  
 }

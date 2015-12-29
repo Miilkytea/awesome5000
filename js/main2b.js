@@ -3,7 +3,7 @@ console.log('activate framework!');
 var imgClasses, stoneClasses;
 var fadeOutTime = 4000;
 
-function Medusa(num, choice, stone, pic) {
+function Medusa(num, choice, stone) {
   this.num = num;
   this.choice = choice;
   this.stone = stone;
@@ -12,6 +12,12 @@ function Medusa(num, choice, stone, pic) {
     $('#' + this.num).removeClass(imgClasses[this.num]).addClass(stoneClasses[this.num]).fadeOut(fadeOutTime);
     this.stone = true;
     this.choice = null;
+  };
+
+  this.hover = function () {
+    $('#' + this.num).mouseenter(function(){
+      $()
+    })
   };
 }
 

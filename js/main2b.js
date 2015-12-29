@@ -14,7 +14,6 @@ function Medusa(num, choice, stone, pic) {
   this.num = num;
   this.choice = choice;
   this.stone = stone;
-  this.pic = pic;
 
   this.turnToStone = function () {
     $('#' + this.num).removeClass(imgClasses[this.num]).addClass(stoneClasses[this.num]).fadeOut(fadeOutTime);
@@ -23,11 +22,11 @@ function Medusa(num, choice, stone, pic) {
   };
 }
 
-var medusa0 = new Medusa(0, null, false, false);
-var medusa1 = new Medusa(1, null, false, false);
-var medusa2 = new Medusa(2, null, false, false);
-var medusa3 = new Medusa(3, null, false, false);
-var medusa4 = new Medusa(4, null, false, false);
+var medusa0 = new Medusa(0, null, false);
+var medusa1 = new Medusa(1, null, false);
+var medusa2 = new Medusa(2, null, false);
+var medusa3 = new Medusa(3, null, false);
+var medusa4 = new Medusa(4, null, false);
 
 var medusas = [medusa0, medusa1, medusa2, medusa3, medusa4];
 
@@ -95,6 +94,7 @@ init();
 
 ///GAME STARTS, USER PICKED, OTHER MEDUSAS PICK
 var playGame = function(playerOneChoice) {
+  $('.color').remove();
   medusaChoiceParty(playerOneChoice);
   checkForMatches();
   gameOver();
@@ -113,7 +113,6 @@ var medusaChoiceParty = function (playerOneChoice) {
 
 var checkForMatches = function () {
   var setToStoneArray = [];
-  medusas.pic = true;
   for (var i = 0; i < medusas.length; i++) {
     var currentMedusa = medusas[i];
     if (!currentMedusa.stone) {
@@ -131,18 +130,17 @@ var checkForMatches = function () {
       console.log(currentMedusa.num, currentChoice, currentMedusa.stone);
       console.log(lookedUpMedusa.num, lookedUpChoice, lookedUpMedusa.stone);
       console.log(' ');
-      //color picks
-      if (medusas.pic) {
-        console.log(colors[i] +' '+ 'picked' +' '+ colors[currentMedusa.choice]);
-        var imgNumPath = "css/images/" + medusas[currentChoice].num +".png";
-        var idNum = $('#'+ currentMedusa.num);
-        var imgIdNumPath = idNum.append("<img class='color' src ="+imgNumPath+">");
-        // $('.color').medusas[currentChoice].num.remove();
+      //color picks      
+      console.log(colors[i] +' '+ 'picked' +' '+ colors[currentMedusa.choice]);
+      var imgNumPath = "css/images/" + medusas[currentChoice].num +".png";
+      var idNum = $('#'+ currentMedusa.num);
+      var imgIdNumPath = idNum.append("<img class='color' src ="+imgNumPath+">");
+      // $('.color').medusas[currentChoice].num.remove();
 
-        if (!medusas[currentChoice].num) {
-          medusas[i].pic = false;
-        $("<img class='color' src = css/images/"+ i+".png>").remove();        }
-      }
+      // if (!medusas[currentChoice].num) {
+      //     medusas[i].pic = false;
+      // $("<img class='color' src = css/images/"+ i+".png>").remove();
+      // }
     }
   }
   console.log(setToStoneArray);

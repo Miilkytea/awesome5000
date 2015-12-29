@@ -2,14 +2,7 @@ console.log('activate framework!');
 
 var imgClasses, stoneClasses;
 var fadeOutTime = 4000;
-var addHoverDirections = function() {
-  $("#0").mouseenter(function(){
-    $("#pinky").show();
-  });
-  $("#0").mouseleave(function(){
-    $("#pinky").hide();
-  });
-};
+
 function Medusa(num, choice, stone, pic) {
   this.num = num;
   this.choice = choice;
@@ -38,17 +31,17 @@ var colors = {
   4 : "green 5"
 };
 
-var addHoverDirections = function() {
+var addHoverBlue = function() {
   $("#0").mouseenter(function(){
-    $("#pinky").show();
+    $("#blue").show();
   });
   $("#0").mouseleave(function(){
-    $("#pinky").hide();
+    $("#blue").hide();
   });
 };
 
 var init = function() {
-  addHoverDirections();
+  addHoverBlue();
 
   imgClasses = ["userLoad", "twoLoad", "threeLoad", "fourLoad", "fiveLoad"];
   stoneClasses = ["stoneUser", "stoneTwo", "stoneThree", "stoneFour", "stoneFive"];
@@ -130,17 +123,11 @@ var checkForMatches = function () {
       console.log(currentMedusa.num, currentChoice, currentMedusa.stone);
       console.log(lookedUpMedusa.num, lookedUpChoice, lookedUpMedusa.stone);
       console.log(' ');
-      //color picks      
       console.log(colors[i] +' '+ 'picked' +' '+ colors[currentMedusa.choice]);
       var imgNumPath = "css/images/" + medusas[currentChoice].num +".png";
       var idNum = $('#'+ currentMedusa.num);
       var imgIdNumPath = idNum.append("<img class='color' src ="+imgNumPath+">");
-      // $('.color').medusas[currentChoice].num.remove();
 
-      // if (!medusas[currentChoice].num) {
-      //     medusas[i].pic = false;
-      // $("<img class='color' src = css/images/"+ i+".png>").remove();
-      // }
     }
   }
   console.log(setToStoneArray);
@@ -150,21 +137,6 @@ var checkForMatches = function () {
   }
   console.log(' ');
 };
-
-// var NumFade = function(pic) {
-//   //if there is already an img there then hide the next one.
-//   if (medusas.pic) {
-//     count = 1;
-
-//     $('html').on('click', function() {
-//       $('.color').hide().on('click', function(){
-//       });
-//     });
-//   } else {
-
-//   }
-// };
-
 
 
 var gameOver = function() {

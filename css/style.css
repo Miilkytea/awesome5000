@@ -123,5 +123,44 @@ h1 {
 [id='1'] img {
   margin-left: -200px;
   padding-right: 400px;
-  
+}
+
+#blue {
+  text-align: center;
+  font-family: helvetica;
+  height: 200px;
+  width: 150px;
+  position: absolute;
+  z-index: 3;
+  left: 560px;
+  bottom:-70px;
+  display: none;
+}
+
+#pink {
+  display: none;
+  z-index: 3;
+  position: absolute;
+
+}
+
+#purple {
+  display: none;
+  z-index: 3;
+  position: absolute;
+
+}
+
+#orange {
+  display: none;
+  z-index: 3;
+  position: absolute;
+
+}
+
+#green {
+  display: none;
+  z-index: 3;
+  position: absolute;
+
 }

@@ -137,30 +137,3 @@ h1 {
   display: none;
 }
 
-.pink img {
-  display: none;
-  z-index: 3;
-  position: absolute;
-
-}
-
-.purple img {
-  display: none;
-  z-index: 3;
-  position: absolute;
-
-}
-
-.orange img {
-  display: none;
-  z-index: 3;
-  position: absolute;
-
-}
-
-.green img {
-  display: none;
-  z-index: 3;
-  position: absolute;
-
-}

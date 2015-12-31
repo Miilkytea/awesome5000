@@ -16,8 +16,8 @@ function Medusa(num, choice, stone) {
 
   this.hover = function () {
     $('#' + this.num).mouseenter(function(){
-      $()
-    })
+      $("#blue").show();
+    });
   };
 }
 
@@ -48,9 +48,12 @@ var addHoverBlue = function() {
 
 var init = function() {
   addHoverBlue();
-
   imgClasses = ["userLoad", "twoLoad", "threeLoad", "fourLoad", "fiveLoad"];
   stoneClasses = ["stoneUser", "stoneTwo", "stoneThree", "stoneFour", "stoneFive"];
+  for (var i = 1; i < medusas.length; i++) {
+    medusas[i].hover();
+  }
+
 };
 
 ////////////WELCOME PAGE

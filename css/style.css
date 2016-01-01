@@ -130,9 +130,9 @@ h1 {
   font-family: helvetica;
   height: 200px;
   width: 150px;
-  position: absolute;
+  position: relative;
   z-index: 3;
-  left: 560px;
+  left: 170px;
   bottom:-70px;
   display: none;
 }

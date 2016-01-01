@@ -16,7 +16,12 @@ function Medusa(num, choice, stone) {
 
   this.hover = function () {
     $('#' + this.num).mouseenter(function(){
-      $("#blue").show();
+      console.log("HIIIII");
+      $('.number' + this.num).show();
+
+    });
+    $('#' + this.num).mouseleave(function(){
+      $('.number' + this.num).hide();
     });
   };
 }

@@ -125,6 +125,23 @@ h1 {
   padding-right: 400px;
 }
 
+.number2{
+  background: url('images/2.png');
+  display: none;
+  z-index: 5;
+
+}
+/*
+[id='2'] {
+
+}
+[id='3'] {
+
+}
+[id='4'] {
+  
+}*/
+
 #blue {
   text-align: center;
   font-family: helvetica;

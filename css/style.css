@@ -10,7 +10,12 @@ body {
 
 section {
   text-align: center;
-  margin: 70px auto;
+/*  margin: 70px auto;*/
+  top: 70px;
+  width: 900px;
+  z-index: 2;
+  position: absolute;
+  transform: translate(30%);
 }
 
 .gorgons div {
@@ -125,22 +130,12 @@ h1 {
   padding-right: 400px;
 }
 
-.number2{
-  background: url('images/2.png');
+.number2 img{
+  z-index: 10;
+  position: absolute;
   display: none;
-  z-index: 5;
 
 }
-/*
-[id='2'] {
-
-}
-[id='3'] {
-
-}
-[id='4'] {
-  
-}*/
 
 #blue {
   text-align: center;
@@ -152,5 +147,15 @@ h1 {
   left: 170px;
   bottom:-70px;
   display: none;
+}
+
+#rules img{
+  position: absolute;
+  top: 70px;
+  left: 220px;
+  height: 170px;
+  cursor: pointer;
+  transform: rotate(4deg);
+
 }
 

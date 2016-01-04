@@ -130,10 +130,12 @@ h1 {
   padding-right: 400px;
 }
 
-.number2 img{
+.number2 { 
   z-index: 10;
   position: absolute;
-  display: none;
+  display: none; !important;
+  background: url('images/2.png');
+  
 
 }
 
@@ -152,10 +154,34 @@ h1 {
 #rules img{
   position: absolute;
   top: 70px;
-  left: 220px;
+  left: 230px;
   height: 170px;
   cursor: pointer;
   transform: rotate(4deg);
 
+}
+
+.rules img{
+  position: absolute;
+  top: 70px;
+  left: 230px;
+  height: 170px;
+  cursor: pointer;
+  transform: rotate(4deg);
+  background: url('images/rules.gif');
+  background: no-repeat;
+
+}
+
+/*////////////////////////////////Media Query//////////////////////////////*/
+@media (max-width: 600px) {
+  .gorgons div {
+    height: 200px;
+    width: 240px;
+    border-radius: 8px;
+    margin: 0 20px;
+    display: inline-block;
+    background-size: 110%;
+  }
 }
 

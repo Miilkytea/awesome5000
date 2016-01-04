@@ -15,15 +15,17 @@ function Medusa(num, choice, stone) {
   };
 
   this.hover = function () {
+    var self = this;
     $('#' + this.num).mouseenter(function(){
-      $('.number' + this.num).show();
-      console.log("HIIIII");
+      $('.number'+ self.num).show();
 
     });
     $('#' + this.num).mouseleave(function(){
-      $('.number' + this.num).hide();
+      $('.number'+ self.num).hide();
+
     });
   };
+    this.hover();
 }
 
 var medusa0 = new Medusa(0, null, false);
@@ -55,10 +57,7 @@ var init = function() {
   addHoverBlue();
   imgClasses = ["userLoad", "twoLoad", "threeLoad", "fourLoad", "fiveLoad"];
   stoneClasses = ["stoneUser", "stoneTwo", "stoneThree", "stoneFour", "stoneFive"];
-  for (var i = 1; i < medusas.length; i++) {
-    medusas[i].hover();
-  }
-
+ 
 };
 
 ////////////WELCOME PAGE
@@ -69,6 +68,10 @@ $("#rules").on('click', function() {
 
 $("#welcomeIntro").on('click', function() {
   $(this).hide(0);
+});
+
+$('#rules').mouseenter(function() {
+  $(this).addClass('rules');
 });
 
 

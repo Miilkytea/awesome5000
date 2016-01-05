@@ -136,7 +136,8 @@ h1 {
   position: absolute;
   display: none; !important;
   height: 50px;
-  left:0px;
+  left: 450px;
+  top: 70px;
 }
 
 .number2 { 
@@ -144,7 +145,8 @@ h1 {
   position: absolute;
   display: none; !important;
   height: 50px;
-  left:0px;
+  left:120px;
+  top: 200px
 }
 
 .number3 { 
@@ -152,7 +154,8 @@ h1 {
   position: absolute;
   display: none; !important;
   height: 50px;
-  left:0px;
+  left:50px;
+  top: 200px;
 }
 
 .number4 { 
@@ -160,7 +163,8 @@ h1 {
   position: absolute;
   display: none; !important;
   height: 50px;
-  left:0px;
+  left: -40px;
+  top: 100px;
 }
 
 #blue {
@@ -168,8 +172,8 @@ h1 {
   font-family: helvetica;
   height: 200px;
   width: 150px;
-  position: relative;
-  z-index: 3;
+  position: absolute;
+  z-index: -3;
   left: 170px;
   bottom:-70px;
   display: none;

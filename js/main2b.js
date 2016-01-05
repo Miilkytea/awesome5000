@@ -64,8 +64,8 @@ var init = function() {
 
 ////////////WELCOME PAGE
 $("#welcomeIntro").hide();
-$("#rules").on('click', function() {
-  $("#welcomeIntro").show(0);
+  $("#rules").on('click', function() {
+    $("#welcomeIntro").show(0);
 });
 
 $("#welcomeIntro").on('click', function() {
@@ -73,8 +73,14 @@ $("#welcomeIntro").on('click', function() {
 });
 
 $('#rules').mouseenter(function() {
-  $('.grey').addClass('rules');
+  $(this).append('<img class="rules" src="css/images/rules.gif">');
 });
+
+$('#rules').mouseleave(function() {
+  $('img').remove('.rules');
+  console.log('oh');
+});
+
 
 
 

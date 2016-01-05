@@ -98,14 +98,13 @@ section {
 
 .welcome {
   color: #ffffff;
-  background: rgba(111, 111, 999, 0.65);
-  height: 445px;
+  background: rgba(000, 111, 999, 0.65);
+  height: 450px;
   width: 45%;
-  border-radius: 25px;
   position: absolute;
   z-index: 2;
   left: 25%;
-  top: 10%;
+  top: 18%;
   text-align: justify;
   font-size: 2em;
   padding: 0 30px;
@@ -195,6 +194,7 @@ h1 {
   left: 230px;
   height: 170px;
   cursor: pointer;
+  z-index: 5;
   transform: rotate(4deg);
   background: url('images/rules.gif');
   background: no-repeat;
@@ -212,4 +212,3 @@ h1 {
     background-size: 110%;
   }
 }
-

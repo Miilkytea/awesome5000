@@ -45,6 +45,7 @@ var colors = {
   4 : "green 5"
 };
 
+
 var addHoverBlue = function() {
   $("#0").mouseenter(function(){
     $("#blue").show();
@@ -72,7 +73,7 @@ $("#welcomeIntro").on('click', function() {
 });
 
 $('#rules').mouseenter(function() {
-  $(this).addClass('rules');
+  $('.grey').addClass('rules');
 });
 
 
@@ -165,11 +166,15 @@ var gameOver = function() {
   }
   if (medusas[0].stone) {
     // When Game Over, remove MouseEnter/MouseLeave
-    $("#0").off();
+    for (var j = 0; j < medusas.length; j++) {
+      $('#' + medusas[j].num).off();
+    }
     console.log("GAME OVER YOU LOSE");
     return $("#loser").delay(1000).show(400);
   } else if (count < 2) {
-    $("#0").off();
+     for (var k = 0; k < medusas.length; k++) {
+      $('#' + medusas[k].num).off();
+    }
     console.log("USER WINS");
     return $("#winner").delay(1000).show(400);
   }

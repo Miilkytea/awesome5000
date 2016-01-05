@@ -130,13 +130,36 @@ h1 {
   padding-right: 400px;
 }
 
+.number1 { 
+  z-index: 10;
+  position: absolute;
+  display: none; !important;
+  height: 50px;
+  left:0px;
+}
+
 .number2 { 
   z-index: 10;
   position: absolute;
   display: none; !important;
-  background: url('images/2.png');
-  
+  height: 50px;
+  left:0px;
+}
 
+.number3 { 
+  z-index: 10;
+  position: absolute;
+  display: none; !important;
+  height: 50px;
+  left:0px;
+}
+
+.number4 { 
+  z-index: 10;
+  position: absolute;
+  display: none; !important;
+  height: 50px;
+  left:0px;
 }
 
 #blue {

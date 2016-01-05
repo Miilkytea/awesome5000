@@ -20,10 +20,11 @@ function Medusa(num, choice, stone) {
       $('.number'+ self.num).show();
 
     });
-    // $('#' + this.num).mouseleave(function(){
-    //   $('.number'+ self.num).hide();
+    var that = this;
+    $('#' + this.num).mouseleave(function(){
+      $('.number'+ that.num).hide();
 
-    // });
+    });
   };
     this.hover();
 }

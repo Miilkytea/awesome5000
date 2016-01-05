@@ -161,8 +161,12 @@ var checkForMatches = function () {
 var gameOver = function() {
   var count = 4;
   for (var i = 0; i < medusas.length; i++) {
-    
-    if (medusas[i].stone) count--;
+    if (medusas[i].stone) {
+      $('#' + medusas[i].num).off();
+
+      count--;
+    }
+
   }
   if (medusas[0].stone) {
     // When Game Over, remove MouseEnter/MouseLeave

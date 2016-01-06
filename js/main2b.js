@@ -1,7 +1,7 @@
 console.log('activate framework!');
 
 var imgClasses, stoneClasses;
-var fadeOutTime = 4000;
+var fadeOutTime = 3000;
 
 function Medusa(num, choice, stone) {
   this.num = num;
@@ -117,7 +117,7 @@ var playGame = function(playerOneChoice) {
     medusaChoiceParty(playerOneChoice);
     checkForMatches();
     gameOver();
-  }, 500);
+  }, 300);
 };
 
 var medusaChoiceParty = function (playerOneChoice) {

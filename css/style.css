@@ -217,9 +217,14 @@ h1 {
   text-align: center;
   font-family: helvetica;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1.7em;
   text-decoration: none;
-  color: #000066;
+  color: #0065ff;
+
+}
+
+#winner p {
+  padding-top: 110px;
 
 }
 
@@ -234,16 +239,21 @@ h1 {
   text-align: center;
   font-family: helvetica;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1.7em;
   text-decoration: none;
-  color: #000066;
+  color: #0065ff;
 }
 
+#loser p {
+  padding-top: 110px;
 
+}
 
 a {
   text-decoration: none;
 }
+
+
 
 /*////////////////////////////////Media Query//////////////////////////////*/
 @media (max-width: 600px) {

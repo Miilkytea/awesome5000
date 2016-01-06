@@ -1,5 +1,6 @@
 html {
   background-image: url('images/medusatextback2.gif');
+  background-size: 93%;
   background-repeat: no-repeat;
 }
 
@@ -10,8 +11,7 @@ body {
 
 section {
   text-align: center;
-/*  margin: 70px auto;*/
-  top: 70px;
+  top: 50px;
   width: 900px;
   z-index: 2;
   position: absolute;

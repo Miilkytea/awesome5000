@@ -182,13 +182,13 @@ var gameOver = function() {
       $('#' + medusas[j].num).off();
     }
     console.log("GAME OVER YOU LOSE");
-    return $("#loser").delay(1000).show(400);
+    return $("#loser").delay(1500).show(400);
   } else if (count < 2) {
      for (var k = 0; k < medusas.length; k++) {
       $('#' + medusas[k].num).off();
     }
     console.log("USER WINS");
-    return $("#winner").delay(1000).show(400);
+    return $("#winner").delay(1500).show(400);
   }
 };
 

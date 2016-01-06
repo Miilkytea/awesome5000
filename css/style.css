@@ -118,6 +118,7 @@ section {
   text-align: center;
   text-shadow: 1px 1px 40px rgba(000, 000, 999, .8);
   font-family: 'Playfair Display SC', serif;
+  font-style: italic;
 }
 
 .welcome p,
@@ -208,7 +209,7 @@ h1 {
 #winner {
   height: 350px;
   width: 450px;
-  transform: skewX(-20deg) translate(120%, 50%);
+  transform: skewX(-17deg) translate(120%, 50%);
   background: rgba(000,000,000,0.30);
   display: none;
   position: relative;
@@ -216,14 +217,16 @@ h1 {
   text-align: center;
   font-family: helvetica;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #000066;
 
 }
 
 #loser {
   height: 350px;
   width: 450px;
-  transform: skewX(-20deg) translate(120%, 50%);
+  transform: skewX(-17deg) translate(120%, 50%);
   background: rgba(000,000,000,0.30);
   display: none;
   position: relative;
@@ -231,8 +234,15 @@ h1 {
   text-align: center;
   font-family: helvetica;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #000066;
+}
 
+
+
+a {
+  text-decoration: none;
 }
 
 /*////////////////////////////////Media Query//////////////////////////////*/

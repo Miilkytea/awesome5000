@@ -87,32 +87,24 @@ $('#rules').mouseleave(function() {
 /////////BUTTONS (FOUR OTHER MEDUSAS)
 
 $('#1').on('click', function() {
-  setTimeout(function() {
-    if ($("#0").hasClass(stoneClasses[0])) return;
-    playGame(this.id);
-  }, 4000);
+  if ($("#0").hasClass(stoneClasses[0])) return;
+  playGame(this.id);
 });
 
 
 $('#2').on('click', function() {
-  setTimeout(function() {
-    if ($("#0").hasClass(stoneClasses[0])) return;
-    playGame(this.id);
-  }, 4000);
+  if ($("#0").hasClass(stoneClasses[0])) return;
+  playGame(this.id);
 });
 
 $('#3').on('click', function() {
-  setTimeout(function() {
-    if ($("#0").hasClass(stoneClasses[0])) return;
-    playGame(this.id);
-  }, 4000);
+  if ($("#0").hasClass(stoneClasses[0])) return;
+  playGame(this.id);
 });
 
 $('#4').on('click', function() {
-  setTimeout(function() {
-    if ($("#0").hasClass(stoneClasses[0])) return;
-    playGame(this.id);
-  }, 4000);
+  if ($("#0").hasClass(stoneClasses[0])) return;
+  playGame(this.id);
 });
 
 ///RESTART FUNCTION TO CLEAR THE GAME
@@ -120,10 +112,12 @@ init();
 
 ///GAME STARTS, USER PICKED, OTHER MEDUSAS PICK
 var playGame = function(playerOneChoice) {
-  $('.color').remove();
-  medusaChoiceParty(playerOneChoice);
-  checkForMatches();
-  gameOver();
+  setTimeout(function() {
+    $('.color').remove();
+    medusaChoiceParty(playerOneChoice);
+    checkForMatches();
+    gameOver();
+  }, 500);
 };
 
 var medusaChoiceParty = function (playerOneChoice) {

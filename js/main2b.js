@@ -78,7 +78,6 @@ $('#rules').mouseenter(function() {
 
 $('#rules').mouseleave(function() {
   $('img').remove('.rules');
-  console.log('oh');
 });
 
 

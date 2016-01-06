@@ -99,15 +99,15 @@ section {
 .welcome {
   color: #ffffff;
   background: rgba(000, 111, 999, 0.65);
-  height: 450px;
+  height: 550px;
   width: 45%;
   position: absolute;
   z-index: 2;
-  left: 25%;
-  top: 18%;
+  left: 20%;
+  top: 10%;
   text-align: justify;
   font-size: 2em;
-  padding: 0 30px;
+  padding: 20px 100px;
   font-family: "Helvetica", san-serif;
   cursor: pointer;
   text-shadow: 1px 1px 30px rgba(000, 000, 999, .9);
@@ -125,6 +125,10 @@ h1 {
   margin: 50px auto;
 }
 
+.welcome h6 {
+  text-align: center;
+  font-style: italic;
+}
 [id='1'] img {
   margin-left: -200px;
   padding-right: 400px;
@@ -198,6 +202,36 @@ h1 {
   transform: rotate(4deg);
   background: url('images/rules.gif');
   background: no-repeat;
+
+}
+
+#winner {
+  height: 350px;
+  width: 450px;
+  transform: skewX(-20deg) translate(120%, 50%);
+  background: rgba(000,000,000,0.30);
+  display: none;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  font-family: helvetica;
+  font-weight: bold;
+  font-size: 1.2em;
+
+}
+
+#loser {
+  height: 350px;
+  width: 450px;
+  transform: skewX(-20deg) translate(120%, 50%);
+  background: rgba(000,000,000,0.30);
+  display: none;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  font-family: helvetica;
+  font-weight: bold;
+  font-size: 1.2em;
 
 }
 

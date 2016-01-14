@@ -1,7 +1,7 @@
 console.log('activate framework!');
 
 var imgClasses, stoneClasses;
-var fadeOutTime = 3000;
+var fadeOutTime = 4000;
 
 function Medusa(num, choice, stone) {
   this.num = num;
@@ -154,6 +154,7 @@ var checkForMatches = function () {
       var imgNumPath = "css/images/" + medusas[currentChoice].num +".png";
       var idNum = $('#'+ currentMedusa.num);
       var imgIdNumPath = idNum.append("<img class='color' src ="+imgNumPath+">");
+       // $('.color').fadeOut(5000);
 
     }
   }

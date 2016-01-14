@@ -98,8 +98,8 @@ section {
 .welcome {
   color: #ffffff;
   background: rgba(000, 111, 999, 0.65);
-  height: 550px;
-  width: 45%;
+  height: 3100px;
+  width: 50%;
   position: absolute;
   z-index: 2;
   left: 20%;
@@ -112,6 +112,21 @@ section {
   text-shadow: 1px 1px 30px rgba(000, 000, 999, .9);
 }
 
+.flex-container {
+  padding: 30px;
+  margin: 0;
+  list-style: none;
+  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
 .welcome h1 {
   font-size: 1.3em;
   text-align: center;
@@ -119,15 +134,32 @@ section {
   font-family: 'Playfair Display SC', serif;
   font-style: italic;
 }
-
+/*
 .welcome p,
 h1 {
   margin: 50px auto;
+}
+*/
+
+.welcome img{
+  border: 2px solid #000;
+  text-align: center;
+  left: 5%;
 }
 
 .welcome h6 {
   text-align: center;
   font-style: italic;
+}
+
+.welcome img{
+  width:587px;
+
+}
+
+#pinkPick{
+  width: 414px;
+
 }
 [id='1'] img {
   margin-left: -200px;
@@ -255,13 +287,48 @@ a {
 
 
 /*////////////////////////////////Media Query//////////////////////////////*/
-@media (max-width: 600px) {
-  .gorgons div {
+@media screen (max-width: 601px) {
+  .gorgons {
     height: 200px;
     width: 240px;
     border-radius: 8px;
     margin: 0 20px;
     display: inline-block;
-    background-size: 110%;
+    background-size: 100%;
   }
+  
+  .welcome .flex-container {
+    color: #ffffff;
+    background: rgba(000, 111, 999, 0.65);
+    height: 750px;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    text-align: justify;
+    font-size: 2em;
+    padding: 20px 100px;
+    font-family: "Helvetica", san-serif;
+    cursor: pointer;
+    text-shadow: 1px 1px 30px rgba(000, 000, 999, .9);
+  }
+
+  .welcome img {
+    width: 410px;
+  }
+
+  .welcome h1 {
+    font-size: 1.3em;
+    text-align: center;
+    text-shadow: 1px 1px 40px rgba(000, 000, 999, .8);
+    font-family: 'Playfair Display SC', serif;
+    font-style: italic;
+  }
+
+  .welcome p,
+  h1 {
+    margin: 50px auto;
+  }
+
 }
+
+
